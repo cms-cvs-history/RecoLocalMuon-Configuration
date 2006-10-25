@@ -1,28 +1,48 @@
-#
-# muon local reco
-#
-#
-# geo
-#
+# Magnetic Field
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
-   include "Geometry/CSCGeometry/data/cscGeometry.cfi"
-   include "Geometry/DTGeometry/data/dtGeometry.cfi"
-   include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
+# Geometry
+include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
+
+# DT Geometry
+include "Geometry/DTGeometry/data/dtGeometry.cfi"
+
+# CSC Geometry
+include "Geometry/CSCGeometry/data/cscGeometry.cfi"
+
+# RPC Geometry
+include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
 
 
-# RPC
-   include "RecoLocalMuon/RPCRecHit/data/RPCRecHit.cfi"
+#------------------------------------ DT ------------------------------------------------
 
-   # CSC
-   include "RecoLocalMuon/CSCRecHit/data/CSCRecHit2DProducer.cfi"
-   include "RecoLocalMuon/CSCSegment/data/CSCSegmentProducer.cfi"
+# 1D RecHits
+include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_ParamDrift.cfi"
+#	include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDrift.cfi"
 
-   # DT
-   include "RecoLocalMuon/DTRecHit/data/DTRecHit1DProducer_ParamDrift.cfi"
-   include "RecoLocalMuon/DTSegment/data/DTSegment2DProducer_CombPatternReco2D_ParamDrift.cfi"
-   include "RecoLocalMuon/DTSegment/data/DTSegment4DProducer_CombPatternReco4D_ParamDrift.cfi"
+# 2D Segments
+include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_ParamDrift.cfi"
+#	include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDrift.cfi"
+
+# 4D Segments
+include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_ParamDrift.cfi"
+#	include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDrift.cfi"
+
+#------------------------------------ CSC -----------------------------------------------
+	
+## 2D RecHit	
+include "RecoLocalMuon/CSCRecHit/data/csc2DRecHits.cfi"
+
+## Segments
+include "RecoLocalMuon/CSCSegment/data/cscSegments.cfi"
+
+#------------------------------------ RPC -----------------------------------------------
+
+# 1D RecHits
+include "RecoLocalMuon/RPCRecHit/data/rpcRecHits.cfi"
+
+#----------------------------------------------------------------------------------------
+
 
 
 sequence muonlocalreco = { rpcRecHits  & csc2DRecHits & cscSegments & dt1DRecHits & dt2DSegments & dt4DSegments }
-
-
