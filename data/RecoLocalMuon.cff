@@ -1,0 +1,28 @@
+#
+# muon local reco
+#
+#
+# geo
+#
+
+   include "Geometry/CSCGeometry/data/cscGeometry.cfi"
+   include "Geometry/DTGeometry/data/dtGeometry.cfi"
+   include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
+
+
+# RPC
+   include "RecoLocalMuon/RPCRecHit/data/RPCRecHit.cfi"
+
+   # CSC
+   include "RecoLocalMuon/CSCRecHit/data/CSCRecHit2DProducer.cfi"
+   include "RecoLocalMuon/CSCSegment/data/CSCSegmentProducer.cfi"
+
+   # DT
+   include "RecoLocalMuon/DTRecHit/data/DTRecHit1DProducer_ParamDrift.cfi"
+   include "RecoLocalMuon/DTSegment/data/DTSegment2DProducer_CombPatternReco2D_ParamDrift.cfi"
+   include "RecoLocalMuon/DTSegment/data/DTSegment4DProducer_CombPatternReco4D_ParamDrift.cfi"
+
+
+sequence muonlocalreco = { rpcRecHits  & csc2DRecHits & cscSegments & dt1DRecHits & dt2DSegments & dt4DSegments }
+
+
