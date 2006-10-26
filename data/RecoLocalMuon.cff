@@ -43,6 +43,11 @@ include "RecoLocalMuon/RPCRecHit/data/rpcRecHits.cfi"
 
 #----------------------------------------------------------------------------------------
 
+# DT sequence
+sequence dtlocalreco = {dt1DRecHits, dt2DSegments, dt4DSegments}
 
+# CSC sequence
+sequence csclocalreco = {csc2DRecHits, cscSegments}
 
-sequence muonlocalreco = { rpcRecHits  & csc2DRecHits & cscSegments & dt1DRecHits & dt2DSegments & dt4DSegments }
+# DT, CSC and RPC tog
+sequence muonlocalreco = {dtlocalreco & csclocalreco & rpcRecHits}
