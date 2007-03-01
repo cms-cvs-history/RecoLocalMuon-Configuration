@@ -1,0 +1,45 @@
+# Muon Geometry
+include "Geometry/MuonCommonData/data/muonIdealGeometryXML.cfi"
+
+# DT Geometry
+include "Geometry/DTGeometry/data/dtGeometry.cfi"
+
+#------------------------------------ DT ------------------------------------------------
+
+#DT Unpacker
+include "CMSSW/EventFilter/DTRawToDigi/data/dtunpacker.cfi"
+# Configuration for commissioning
+#include "CMSSW/EventFilter/DTRawToDigi/data/dtunpackerCommissioning.cfi"
+# Configuration for Global DAQ at MTCC
+#include "CMSSW/EventFilter/DTRawToDigi/data/dtunpackerDDUGlobal.cfi"
+# Configuration for Local DAQ at MTCC
+#include "CMSSW/EventFilter/DTRawToDigi/data/dtunpackerDDULocal.cfi"
+
+#Calibration: mapping, t0, ttrig: here you need to put your favourite ttrig DB
+include "CalibMuon/DTCalibration/data/DT_Calibration.cff"
+
+#Calibration of noise: here you need to put your favourite noise DB, if necessary
+#include "CalibMuon/DTCalibration/data/DT_Calibration_noise.cff"
+
+# 1D RecHits
+include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDrift_CosmicData.cfi"
+# include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDriftFromDB_CosmicData.cfi"
+#Calibration of vdrift: here you need to put your favourite vdrift DB
+#include "CalibMuon/DTCalibration/data/DT_Calibration_vdrift.cff"
+
+# 2D Segments
+include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDrift_CosmicData.cfi"
+# include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDriftFromDB_CosmicData.cfi"
+
+# 4D Segments
+include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDrift_CosmicData.cfi"
+# include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDriftFromDB_CosmicData.cfi"
+
+# DT sequence for the standard reconstruction chain 
+# The reconstruction of the 2D segments are not required for the 4D segments reconstruction, they are used
+# only for debuging purpose and for specific studies
+sequence dtlocalreco = {dt1DRecHits, dt4DSegments}
+
+# DT sequence with the 2D segment reconstruction
+sequence dtlocalreco_with_2DSegments = {dt1DRecHits, dt2DSegments, dt4DSegments}
+
