@@ -9,25 +9,22 @@ include "Geometry/DTGeometry/data/dtGeometry.cfi"
 
 #------------------------------------ Calibration ------------------------------------------------
 
-#FIXME: what about mapping?
-
 #Calibration: t0, ttrig, vdrift: here you need to put your fake t0, ttrig and vdrift DB
-include "CalibMuon/DTCalibration/data/DT_Calibration_CSA07.cff"
+#include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
 
-#Calibration of noise: here you need to put your fake noise DB 
-#FIXME: noise is not read in the reconstruction!!
-#include "CalibMuon/DTCalibration/data/DT_Calibration_noise.cff"
+#Fake calibration
+include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
 
 #------------------------------------ Reconstruction ------------------------------------------------
 
 # 1D RecHits
-include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDriftFromDB_CSA07.cfi"
+include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_ParamDrift_CSA07.cfi"
 
 # 2D Segments
-include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDriftFromDB_CSA07.cfi"
+include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_ParamDrift_CSA07.cfi"
 
 # 4D Segments
-include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDriftFromDB_CSA07.cfi"
+include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_ParamDrift_CSA07.cfi"
 
 # DT sequence for the standard reconstruction chain 
 # The reconstruction of the 2D segments are not required for the 4D segments reconstruction, they are used
