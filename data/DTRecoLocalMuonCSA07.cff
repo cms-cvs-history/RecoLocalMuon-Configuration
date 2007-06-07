@@ -7,14 +7,6 @@ include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cff"
 # DT Geometry
 include "Geometry/DTGeometry/data/dtGeometry.cfi"
 
-#------------------------------------ Calibration ------------------------------------------------
-
-#Calibration: t0, ttrig, vdrift: here you need to put your fake t0, ttrig and vdrift DB
-#include "CalibMuon/Configuration/data/DT_FrontierConditions.cff"
-
-#Fake calibration
-include "CalibMuon/Configuration/data/DT_FakeConditions.cff"
-
 #------------------------------------ Reconstruction ------------------------------------------------
 
 # 1D RecHits
