@@ -3,7 +3,6 @@ block RecoLocalMuonFEVT = {
     untracked vstring outputCommands = {
 # DT
 	"keep *_dt1DRecHits_*_*",  
-	"keep *_dt2DSegments_*_*",  
 	"keep *_dt4DSegments_*_*",  
 # CSC
 	"keep *_csc2DRecHits_*_*",  
@@ -18,7 +17,6 @@ block RecoLocalMuonRECO = {
     untracked vstring outputCommands = {
 # DT
 	"keep *_dt1DRecHits_*_*",  
-	"keep *_dt2DSegments_*_*",  
 	"keep *_dt4DSegments_*_*",  
 # CSC
 	"keep *_csc2DRecHits_*_*",  
