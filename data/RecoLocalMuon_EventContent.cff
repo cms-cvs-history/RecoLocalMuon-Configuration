@@ -1,7 +1,7 @@
 # Full Event content 
 block RecoLocalMuonFEVT = {
     untracked vstring outputCommands = {
-# DT
+# DT 
 	"keep *_dt1DRecHits_*_*",  
 	"keep *_dt4DSegments_*_*",  
 # CSC
