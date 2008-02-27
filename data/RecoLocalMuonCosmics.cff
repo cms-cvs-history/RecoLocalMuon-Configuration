@@ -18,12 +18,17 @@ include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
 
 # 1D RecHits
 include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDrift_CosmicData.cfi"
+replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.hitResolution = 0.05
+replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.tTrigModeConfig.kFactor = -1.00	
 
 # 2D Segments
 include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDrift_CosmicData.cfi"
+replace DTCombinatorialPatternReco2DAlgo_LinearDrift_CosmicData.Reco2DAlgoConfig.segmCleanerMode = 2
+replace DTCombinatorialPatternReco2DAlgo_LinearDrift_CosmicData.Reco2DAlgoConfig.MaxAllowedHits = 30
 
 # 4D Segments
 include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDrift_CosmicData.cfi"
+replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig.segmCleanerMode = 2
 
 #------------------------------------ CSC -----------------------------------------------
 	
