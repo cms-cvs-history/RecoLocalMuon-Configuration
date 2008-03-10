@@ -1,0 +1,64 @@
+# Magnetic Field
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
+
+# Geometry
+include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cff"
+
+# DT Geometry
+include "Geometry/DTGeometry/data/dtGeometry.cfi"
+
+# CSC Geometry
+include "Geometry/CSCGeometry/data/cscGeometry.cfi"
+
+# RPC Geometry
+include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
+
+
+#------------------------------------ DT ------------------------------------------------
+
+# 1D RecHits
+include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDrift_CosmicData.cfi"
+replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.hitResolution = 0.05
+replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.tTrigModeConfig.kFactor = -1.00
+replace dt1DRecHits.dtDigiLabel = muonDTDigis	
+
+# 2D Segments
+include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDrift_CosmicData.cfi"
+replace DTCombinatorialPatternReco2DAlgo_LinearDrift_CosmicData.Reco2DAlgoConfig.segmCleanerMode = 2
+replace DTCombinatorialPatternReco2DAlgo_LinearDrift_CosmicData.Reco2DAlgoConfig.MaxAllowedHits = 30
+
+# 4D Segments
+include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDrift_CosmicData.cfi"
+replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig.segmCleanerMode = 2
+
+#------------------------------------ CSC -----------------------------------------------
+	
+## 2D RecHit	
+include "RecoLocalMuon/CSCRecHitB/data/cscRecHitB.cfi"
+
+## Segments
+include "RecoLocalMuon/CSCSegment/data/cscSegments.cfi"
+
+#------------------------------------ RPC -----------------------------------------------
+
+# 1D RecHits
+include "RecoLocalMuon/RPCRecHit/data/rpcRecHits.cfi"
+
+#----------------------------------------------------------------------------------------
+
+# DT sequence for the standard reconstruction chain 
+# The reconstruction of the 2D segments are not required for the 4D segments reconstruction, they are used
+# only for debuging purpose and for specific studies
+sequence dtlocalreco = {dt1DRecHits, dt4DSegments}
+
+# DT sequence with the 2D segment reconstruction
+sequence dtlocalreco_with_2DSegments = {dt1DRecHits, dt2DSegments, dt4DSegments}
+
+# CSC sequence
+sequence csclocalreco = {csc2DRecHits, cscSegments}
+
+# DT, CSC and RPC together
+sequence muonlocalreco_with_2DSegments = {dtlocalreco_with_2DSegments & csclocalreco & rpcRecHits}
+
+# DT, CSC and RPC together (correct sequence for the standard path)
+sequence muonlocalreco = {dtlocalreco & csclocalreco & rpcRecHits}
