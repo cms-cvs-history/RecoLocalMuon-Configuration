@@ -34,7 +34,7 @@ replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig
 #------------------------------------ CSC -----------------------------------------------
 	
 ## 2D RecHit	
-include "RecoLocalMuon/CSCRecHitD/data/cscRecHitD.cfi"
+include "RecoLocalMuon/CSCRecHitD/data/cscRecHitB.cfi"
 
 ## Segments
 include "RecoLocalMuon/CSCSegment/data/cscSegments.cfi"
