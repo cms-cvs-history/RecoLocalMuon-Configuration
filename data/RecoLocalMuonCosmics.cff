@@ -19,8 +19,7 @@ include "Geometry/RPCGeometry/data/rpcGeometry.cfi"
 # 1D RecHits
 include "RecoLocalMuon/DTRecHit/data/dt1DRecHits_LinearDrift_CosmicData.cfi"
 replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.hitResolution = 0.05
-replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.tTrigModeConfig.kFactor = -1.00
-replace dt1DRecHits.dtDigiLabel = muonDTDigis	
+replace DTLinearDriftAlgo_CosmicData.recAlgoConfig.tTrigModeConfig.kFactor = -1.00	
 
 # 2D Segments
 include "RecoLocalMuon/DTSegment/data/dt2DSegments_CombPatternReco2D_LinearDrift_CosmicData.cfi"
@@ -34,7 +33,9 @@ replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig
 #------------------------------------ CSC -----------------------------------------------
 	
 ## 2D RecHit	
-include "RecoLocalMuon/CSCRecHitD/data/cscRecHitD.cfi"
+
+# new reconstruction using DB
+include "RecoLocalMuon/CSCRecHitB/data/cscRecHitB.cfi"
 
 ## Segments
 include "RecoLocalMuon/CSCSegment/data/cscSegments.cfi"
