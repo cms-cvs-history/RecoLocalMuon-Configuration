@@ -31,6 +31,12 @@ replace DTCombinatorialPatternReco2DAlgo_LinearDrift_CosmicData.Reco2DAlgoConfig
 include "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_LinearDrift_CosmicData.cfi"
 replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig.segmCleanerMode = 2
 
+# No drift algo
+module dt1DRecHitsNoDrift = dt1DRecHits from "RecoLocalMuon/DTRecHit/data/dt1DRecHits_NoDrift_CosmicData.cfi"
+module dt4DSegmentsNoDrift = dt4DSegments from "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_NoDrift_CosmicData.cfi"
+
+sequence dtlocalrecoNoDrift = {dt1DRecHitsNoDrift, dt4DSegmentsNoDrift}
+
 #------------------------------------ CSC -----------------------------------------------
 	
 ## 2D RecHit	
