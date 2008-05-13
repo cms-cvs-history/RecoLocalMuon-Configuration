@@ -73,3 +73,5 @@ sequence muonlocalreco = {dtlocalreco & csclocalreco & rpcRecHits}
 
 # DT, CSC and RPC together (correct sequence for the standard path)
 sequence muonlocalrecoNoDrift = {dtlocalrecoNoDrift & csclocalreco & rpcRecHits}
+
+sequence muonLocalRecoGR = {muonlocalreco & muonlocalrecoNoDrift}
