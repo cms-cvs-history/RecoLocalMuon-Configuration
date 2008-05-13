@@ -68,3 +68,6 @@ sequence muonlocalreco_with_2DSegments = {dtlocalreco_with_2DSegments & csclocal
 
 # DT, CSC and RPC together (correct sequence for the standard path)
 sequence muonlocalreco = {dtlocalreco & csclocalreco & rpcRecHits}
+
+# DT, CSC and RPC together (correct sequence for the standard path)
+sequence muonlocalrecoNoDrift = {dtlocalreco & csclocalreco & rpcRecHits}
