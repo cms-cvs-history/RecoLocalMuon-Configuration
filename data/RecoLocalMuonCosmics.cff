@@ -33,6 +33,8 @@ replace DTCombinatorialPatternReco4DAlgo_LinearDrift_CosmicData.Reco4DAlgoConfig
 
 # No drift algo
 module dt1DRecHitsNoDrift = dt1DRecHits from "RecoLocalMuon/DTRecHit/data/dt1DRecHits_NoDrift_CosmicData.cfi"
+replace dt1DRecHitsNoDrift.dtDigiLabel = muonDTDigis
+
 module dt4DSegmentsNoDrift = dt4DSegments from "RecoLocalMuon/DTSegment/data/dt4DSegments_CombPatternReco4D_NoDrift_CosmicData.cfi"
 
 sequence dtlocalrecoNoDrift = {dt1DRecHitsNoDrift, dt4DSegmentsNoDrift}
@@ -70,4 +72,4 @@ sequence muonlocalreco_with_2DSegments = {dtlocalreco_with_2DSegments & csclocal
 sequence muonlocalreco = {dtlocalreco & csclocalreco & rpcRecHits}
 
 # DT, CSC and RPC together (correct sequence for the standard path)
-sequence muonlocalrecoNoDrift = {dtlocalreco & csclocalreco & rpcRecHits}
+sequence muonlocalrecoNoDrift = {dtlocalrecoNoDrift & csclocalreco & rpcRecHits}
